@@ -19,3 +19,4 @@ public final class DummyEmpty implements Benchmark {
     return Validators.simple("nothing", 0, 0);
   }
 }
+
