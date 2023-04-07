@@ -145,7 +145,11 @@ The following is the complete list of benchmarks, separated into groups.
 
 #### java-graphs
 
-- `a-star` - Runs the A* algorithm.
+- `iterative-deepening` - Runs the iterative deepening search algorithm.
+  \
+  Default repetitions: 30; MIT license, MIT distribution; Supported JVM: 1.8 and later
+
+- `ucs` - Runs the uniform cost search algorithm.
   \
   Default repetitions: 30; MIT license, MIT distribution; Supported JVM: 1.8 and later
 

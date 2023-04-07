@@ -20,7 +20,8 @@ import org.renaissance.License
 @Parameter(name = "seed")
 final class IterativeDeepening extends Benchmark {
 
-  private var benchmark: JavaIterativeDeepeningBenchmark = new JavaIterativeDeepeningBenchmark();
+  private var benchmark: JavaIterativeDeepeningBenchmark =
+    new JavaIterativeDeepeningBenchmark();
 
   override def setUpBeforeAll(c: BenchmarkContext): Unit = {
     val numNodes = c.parameter("numNodes").toPositiveInteger
@@ -31,13 +32,20 @@ final class IterativeDeepening extends Benchmark {
     var hasSeed = false;
     if (c.parameter("seed").value().isEmpty()) {
       hasSeed = false
-    }
-    else {
+    } else {
       hasSeed = true;
       seed = c.parameter("seed").toInteger
     }
-    println(s"Initializing iterrative deepening with $numNodes nodes, $numEdges edges, $numTargets targets, payload size $nodePayloadSize and seed ${if (hasSeed) seed else null}");
-    benchmark.generateProblemRandomly(numNodes, numEdges, nodePayloadSize, numTargets, if (hasSeed) seed else null);
+    println(
+      s"Initializing iterrative deepening with $numNodes nodes, $numEdges edges, $numTargets targets, payload size $nodePayloadSize and seed ${if (hasSeed) seed else null}"
+    );
+    benchmark.generateProblemRandomly(
+      numNodes,
+      numEdges,
+      nodePayloadSize,
+      numTargets,
+      if (hasSeed) seed else null
+    );
   }
 
   override def run(c: BenchmarkContext): BenchmarkResult = {

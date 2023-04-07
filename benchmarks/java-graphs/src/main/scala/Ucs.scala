@@ -24,25 +24,32 @@ final class Ucs extends Benchmark {
   private var benchmark: JavaUcsBenchmark = new JavaUcsBenchmark()
 
   override def setUpBeforeAll(c: BenchmarkContext): Unit = {
-    val numNodes  = c.parameter("numNodes").toPositiveInteger
+    val numNodes = c.parameter("numNodes").toPositiveInteger
     val numEdges = c.parameter("numEdges").toPositiveInteger
     val nodePayloadSize = c.parameter("nodePayloadSize").toInteger.asInstanceOf[Short]
     val numTargets = c.parameter("numTargets").toPositiveInteger
     var seed = 0;
     var hasSeed = false;
-    if(c.parameter("seed").value().isEmpty()){
+    if (c.parameter("seed").value().isEmpty()) {
       hasSeed = false
-    }
-    else {
+    } else {
       hasSeed = true;
       seed = c.parameter("seed").toInteger
     }
-    println(s"Initializing UCS with $numNodes nodes, $numEdges edges, $numTargets targets, payload size $nodePayloadSize and seed ${if (hasSeed) seed else null}");
-    benchmark.generateProblemRandomly(numNodes, numEdges, nodePayloadSize, numTargets, if (hasSeed) seed else null);
+    println(
+      s"Initializing UCS with $numNodes nodes, $numEdges edges, $numTargets targets, payload size $nodePayloadSize and seed ${if (hasSeed) seed else null}"
+    );
+    benchmark.generateProblemRandomly(
+      numNodes,
+      numEdges,
+      nodePayloadSize,
+      numTargets,
+      if (hasSeed) seed else null
+    );
   }
 
   override def run(c: BenchmarkContext): BenchmarkResult = {
-    var result =  benchmark.run()
+    var result = benchmark.run()
     Validators.dummy(result)
   }
 }
