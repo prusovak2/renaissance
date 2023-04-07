@@ -14,10 +14,10 @@ public class JavaIterativeDeepeningBenchmark {
     public void generateProblemRandomly(int numNodes, int numEdges, short payloadSize, int numTargets, Integer seed){
         GraphBuilder<BaseNode> builder = new GraphBuilder<BaseNode>(numNodes, numEdges, payloadSize, BaseNodeInstanceCreator.INSTANCE);
         if(seed == null){
-            builder.buildSearchProblem(numTargets);
+            searchProblem =  builder.buildSearchProblem(numTargets);
         }
         else {
-            searchProblem = builder.buildSearchProblem(numTargets, 44);
+            searchProblem = builder.buildSearchProblem(numTargets, seed);
         }
     }
 
