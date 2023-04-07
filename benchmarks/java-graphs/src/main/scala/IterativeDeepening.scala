@@ -37,7 +37,7 @@ final class IterativeDeepening extends Benchmark {
       seed = c.parameter("seed").toInteger
     }
     println(
-      s"Initializing iterrative deepening with $numNodes nodes, $numEdges edges, $numTargets targets, payload size $nodePayloadSize and seed ${if (hasSeed) seed else null}"
+      s"Initializing iterative deepening with $numNodes nodes, $numEdges edges, $numTargets targets, payload size $nodePayloadSize and seed ${if (hasSeed) seed else null}"
     );
     benchmark.generateProblemRandomly(
       numNodes,
