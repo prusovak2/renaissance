@@ -4,4 +4,4 @@
 # cache for the default -mem value of 1024. This is not enough for a clean
 # build, in which the code cache size grows to slightly over 200M. Setting the
 # -mem option to 2048 gives us 256M of code cache.
--mem 2048
+# -mem 2048
